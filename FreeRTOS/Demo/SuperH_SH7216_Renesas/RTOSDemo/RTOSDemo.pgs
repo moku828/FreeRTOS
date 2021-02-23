@@ -6,7 +6,7 @@ Version=1.0
 [Toolchain]
 Toolchain=Renesas SuperH Standard
 Toolchain Name=Renesas SuperH RISC engine Standard Toolchain
-Toolchain Version=9.3.2.0
+Toolchain Version=9.4.3.0
 
 [CPU]
 CPU Family=SuperH RISC engine
