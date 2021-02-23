@@ -123,14 +123,9 @@
 #define mainBLOCK_Q_PRIORITY				( tskIDLE_PRIORITY + 2 )
 #define mainCREATOR_TASK_PRIORITY           ( tskIDLE_PRIORITY + 3 )
 #define mainFLASH_TASK_PRIORITY				( tskIDLE_PRIORITY + 1 )
-#define mainuIP_TASK_PRIORITY				( tskIDLE_PRIORITY + 2 )
 #define mainINTEGER_TASK_PRIORITY           ( tskIDLE_PRIORITY )
 #define mainGEN_QUEUE_TASK_PRIORITY			( tskIDLE_PRIORITY )
 #define mainFLOP_TASK_PRIORITY				( tskIDLE_PRIORITY )
-
-/* The WEB server uses string handling functions, which in turn use a bit more
-stack than most of the other tasks. */
-#define mainuIP_STACK_SIZE					( configMINIMAL_STACK_SIZE * 3 )
 
 /* The LED toggled by the check task. */
 #define mainCHECK_LED						( 5 )
@@ -183,11 +178,6 @@ extern void vRegTest1Task( void *pvParameters );
 extern void vRegTest2Task( void *pvParameters );
 
 /*
- * Contains the implementation of the WEB server.
- */
-extern void vuIP_Task( void *pvParameters );
-
-/*
  * The interrupt handler for the MTU - which is used to maintain the time base
  * used by the run time stats.
  */
@@ -226,8 +216,6 @@ TaskHandle_t xCreatedTask;
 	
 	xTaskCreate( vRegTest2Task, "RegTst2", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xCreatedTask );
 	xPortUsesFloatingPoint( xCreatedTask );
-
-	xTaskCreate( vuIP_Task, "uIP", mainuIP_STACK_SIZE, NULL, mainuIP_TASK_PRIORITY, NULL );
 
 	/* Start the check task as described at the top of this file. */
 	xTaskCreate( prvCheckTask, "Check", configMINIMAL_STACK_SIZE, NULL, mainCHECK_TASK_PRIORITY, NULL );

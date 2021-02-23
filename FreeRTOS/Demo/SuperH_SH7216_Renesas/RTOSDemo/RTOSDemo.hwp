@@ -127,15 +127,7 @@
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\Minimal\integer.c" "User" "C source file|Standard Demo Tasks" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\Minimal\recmutex.c" "User" "C source file|Standard Demo Tasks" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\Minimal\semtest.c" "User" "C source file|Standard Demo Tasks" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\apps\httpd\http-strings.c" "User" "C source file|FreeTCPIP" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\apps\httpd\httpd-fs.c" "User" "C source file|FreeTCPIP" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\apps\httpd\httpd.c" "User" "C source file|FreeTCPIP" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\psock.c" "User" "C source file|FreeTCPIP" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\timer.c" "User" "C source file|FreeTCPIP" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\uip.c" "User" "C source file|FreeTCPIP" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\uip_arp.c" "User" "C source file|FreeTCPIP" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\ParTest\ParTest.c" "User" "C source file" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\RenesasCode\hwEthernetPhyRTL8201.c" "User" "C source file|RenesasCode" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\dbsct.c" "User" "C source file" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\flop.c" "User" "C source file|Standard Demo Tasks" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\intprg.c" "User" "C source file" 2 
@@ -143,11 +135,7 @@
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\printf-stdarg.c" "User" "C source file" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\regtest.src" "User" "Assembly source file" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\resetprg.c" "User" "C source file" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\uIP_Task.c" "User" "C source file" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\vecttbl.c" "User" "C source file" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\webserver\EMAC.c" "User" "C source file" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\webserver\EMAC_ISR.src" "User" "Assembly source file" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\webserver\httpd-cgi.c" "User" "C source file|FreeTCPIP" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Source\list.c" "User" "C source file|FreeRTOS" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Source\portable\MemMang\heap_2.c" "User" "C source file|FreeRTOS" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Source\portable\Renesas\SH2A_FPU\port.c" "User" "C source file|FreeRTOS" 2 
@@ -190,25 +178,14 @@
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\Minimal\integer.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\Minimal\recmutex.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\Minimal\semtest.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\apps\httpd\http-strings.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\apps\httpd\httpd-fs.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\apps\httpd\httpd.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\psock.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\timer.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\uip.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\Common\ethernet\FreeTCPIP\uip_arp.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\ParTest\ParTest.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\RenesasCode\hwEthernetPhyRTL8201.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\dbsct.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\flop.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\intprg.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\main.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\printf-stdarg.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\resetprg.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\uIP_Task.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\vecttbl.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\webserver\EMAC.c" "0e01c1b7cefaac10" 2 
-"C:\E\Dev\FreeRTOS\WorkingCopy\Demo\SuperH_SH7216_Renesas\RTOSDemo\webserver\httpd-cgi.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Source\list.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Source\portable\MemMang\heap_2.c" "0e01c1b7cefaac10" 2 
 "C:\E\Dev\FreeRTOS\WorkingCopy\Source\portable\Renesas\SH2A_FPU\port.c" "0e01c1b7cefaac10" 2 
