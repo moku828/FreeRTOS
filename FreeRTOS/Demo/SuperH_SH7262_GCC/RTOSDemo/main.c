@@ -382,7 +382,7 @@ static void prvSetupHardware( void )
 volatile unsigned long ul;
 
 	/* Set the CPU and peripheral clocks. */
-	CPG.FRQCR.WORD = mainFRQCR_VALUE;
+	FRQCR = mainFRQCR_VALUE;
 	
 	/* Wait for the clock to settle. */
 	for( ul = 0; ul < 99; ul++ )
@@ -407,34 +407,34 @@ const unsigned long ulCompareMatch = ( configPERIPHERAL_CLOCK_HZ / ( configTICK_
 	as the interrupt handler for whichever peripheral is used. */
 	
 	/* Turn the CMT on. */
-	CPG.STBCR7.BIT.MSTP72 = 0;
+	STBCR7 &= ~0x04;
 	
 	/* Set the compare match value for the required tick frequency. */
-	CMT.CMCOR0.WORD = ( unsigned short ) ulCompareMatch;
+	CMCOR_0 = ( unsigned short ) ulCompareMatch;
 	
 	/* Divide the peripheral clock by 32. */
-	CMT.CMCSR0.BIT.CKS = 0x01;
+	CMCSR_0 = (CMCSR_0 & ~0x0003) | 0x0001;
 	
 	/* Set the CMT interrupt priority - the interrupt priority must be
 	configKERNEL_INTERRUPT_PRIORITY no matter which peripheral is used to generate
 	the tick interrupt. */
-	INTC.IPR10.BIT._CMT0 = portKERNEL_INTERRUPT_PRIORITY;
+	IPR10 = (IPR10 & ~0x00F0) | (portKERNEL_INTERRUPT_PRIORITY << 4);
 	
 	/* Clear the interrupt flag. */
-	CMT.CMCSR0.BIT.CMF = 0;
+	CMCSR_0 &= ~0x0080;
 	
 	/* Enable the compare match interrupt. */
-	CMT.CMCSR0.BIT.CMIE = 0x01;
+	CMCSR_0 |= 0x0040;
 	
 	/* Start the timer. */
-	CMT.CMSTR.BIT.STR0 = 0x01;
+	CMSTR |= 0x01;
 }
 /*-----------------------------------------------------------*/
 
 void vApplicationTickHook( void )
 {
 	/* Clear the tick inerrupt.  This is called from an interrupt context. */
-	CMT.CMCSR0.BIT.CMF = 0;
+	CMCSR_0 &= ~0x0080;
 }
 /*-----------------------------------------------------------*/
 
@@ -445,26 +445,26 @@ void vSetupClockForRunTimeStats( void )
 	much processing time each task is using. */
 
 	/* Turn the MTU2 on. */
-	CPG.STBCR3.BIT.MSTP35 = 0;
+	STBCR3 &= ~0x20;
 		
 	/* Clear counter on compare match A. */
-	MTU2.TCR_0.BIT.CCLR = 0x01;
+	TCR_0 = (TCR_0 & ~0xE0) | 0x20;
 	
 	/* Compare match value to give very approximately 10 interrupts per 
 	millisecond. */
-	MTU2.TGRA_0.WORD = 5000;
+	TGRA_0 = 5000;
 	
 	/* Ensure the interrupt is clear. */
-	MTU2.TSR_0.BIT.TGFA = 0;
+	TSR_0 &= ~0x01;
 		
 	/* Enable the compare match interrupt. */
-	MTU2.TIER_0.BIT.TGIEA = 0x01;	
+	TIER_0 |= 0x01;	
 	
 	/* Set the interrupt priority. */
-	INTC.IPR11.BIT._MTU00 = portKERNEL_INTERRUPT_PRIORITY + 1;
+	IPR11 = (IPR11 & ~0x00F0) | ((portKERNEL_INTERRUPT_PRIORITY + 1) << 4);
 	
 	/* Start the count. */
-	MTU2.TSTR.BIT.CST0 = 1;
+	TSTR |= 0x01;
 }
 /*-----------------------------------------------------------*/
 
@@ -476,8 +476,8 @@ volatile unsigned char ucStatus;
 	ulRunTime++;
 
 	/* Clear the interrupt. */
-	ucStatus = MTU2.TSR_0.BYTE;
-	MTU2.TSR_0.BIT.TGFA = 0;
+	ucStatus = TSR_0;
+	TSR_0 &= ~0x01;
 }
 /*-----------------------------------------------------------*/
 

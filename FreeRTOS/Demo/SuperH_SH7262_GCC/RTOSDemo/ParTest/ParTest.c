@@ -45,13 +45,13 @@ static const unsigned short usLEDMasks[ partestNUM_LEDS ] = { ( 1 << 8 ) };
 void vParTestInitialise( void )
 {
 	/* Select port functions for PE9 to PE15. */
-	PORT.PCCR2.WORD &= ( unsigned short ) ~partestALL_LEDS;
+	PCCR2 &= ( unsigned short ) ~partestALL_LEDS;
 
 	/* Turn all LEDs off. */
-	PORT.PCDR0.WORD &= ( unsigned short ) ~partestALL_LEDS;
+	PCDR0 &= ( unsigned short ) ~partestALL_LEDS;
 	
 	/* Set all LEDs to output. */
-	PORT.PCIOR0.WORD |= ( unsigned short ) partestALL_LEDS;
+	PCIOR0 |= ( unsigned short ) partestALL_LEDS;
 }
 /*-----------------------------------------------------------*/
 
@@ -64,7 +64,7 @@ void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
 			/* Turn the LED on. */
 			taskENTER_CRITICAL();
 			{
-				PORT.PCDR0.WORD |= usLEDMasks[ uxLED ];
+				PCDR0 |= usLEDMasks[ uxLED ];
 			}
 			taskEXIT_CRITICAL();
 		}
@@ -73,7 +73,7 @@ void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
 			/* Turn the LED off. */
 			taskENTER_CRITICAL();
 			{
-				PORT.PCDR0.WORD &= ( unsigned short ) ~usLEDMasks[ uxLED ];
+				PCDR0 &= ( unsigned short ) ~usLEDMasks[ uxLED ];
 			}
 			taskEXIT_CRITICAL();
 		}
@@ -87,13 +87,13 @@ void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
 	{
 		taskENTER_CRITICAL();
 		{
-			if( ( PORT.PCDR0.WORD & usLEDMasks[ uxLED ] ) != 0x00 )
+			if( ( PCDR0 & usLEDMasks[ uxLED ] ) != 0x00 )
 			{
-				PORT.PCDR0.WORD &= ( unsigned short ) ~usLEDMasks[ uxLED ];
+				PCDR0 &= ( unsigned short ) ~usLEDMasks[ uxLED ];
 			}
 			else
 			{
-				PORT.PCDR0.WORD |= usLEDMasks[ uxLED ];
+				PCDR0 |= usLEDMasks[ uxLED ];
 			}
 		}
 		taskEXIT_CRITICAL();
@@ -104,7 +104,7 @@ void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
 long lParTestGetLEDState( void )
 {
 	/* Returns the state of the first LED. */
-	return !( PORT.PCDR0.WORD & usLEDMasks[ 0 ] );
+	return !( PCDR0 & usLEDMasks[ 0 ] );
 }
 /*-----------------------------------------------------------*/
 
