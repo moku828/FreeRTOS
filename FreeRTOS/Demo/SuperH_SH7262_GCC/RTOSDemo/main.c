@@ -114,7 +114,7 @@
 #include "flop.h"
 
 /* Constants required to configure the hardware. */
-#define mainFRQCR_VALUE 					( 0x0303 )	/* Input = 12.5MHz, I Clock = 200MHz, B Clock = 50MHz, P Clock = 50MHz */
+#define mainFRQCR_VALUE 					( 0x0124 )	/* Input = 48MHz, I Clock = 48MHz, B Clock = 48MHz, P Clock = 12MHz */
 
 /* Task priorities. */
 #define mainQUEUE_POLL_PRIORITY				( tskIDLE_PRIORITY + 1 )
@@ -128,7 +128,7 @@
 #define mainFLOP_TASK_PRIORITY				( tskIDLE_PRIORITY )
 
 /* The LED toggled by the check task. */
-#define mainCHECK_LED						( 5 )
+#define mainCHECK_LED						( 0 )
 
 /* The rate at which mainCHECK_LED will toggle when all the tasks are running
 without error. */
@@ -407,24 +407,24 @@ const unsigned long ulCompareMatch = ( configPERIPHERAL_CLOCK_HZ / ( configTICK_
 	as the interrupt handler for whichever peripheral is used. */
 	
 	/* Turn the CMT on. */
-	STB.CR4.BIT._CMT = 0;
+	CPG.STBCR7.BIT.MSTP72 = 0;
 	
 	/* Set the compare match value for the required tick frequency. */
-	CMT0.CMCOR = ( unsigned short ) ulCompareMatch;
+	CMT.CMCOR0.WORD = ( unsigned short ) ulCompareMatch;
 	
 	/* Divide the peripheral clock by 32. */
-	CMT0.CMCSR.BIT.CKS = 0x01;
+	CMT.CMCSR0.BIT.CKS = 0x01;
 	
 	/* Set the CMT interrupt priority - the interrupt priority must be
 	configKERNEL_INTERRUPT_PRIORITY no matter which peripheral is used to generate
 	the tick interrupt. */
-	INTC.IPR08.BIT._CMT0 = portKERNEL_INTERRUPT_PRIORITY;
+	INTC.IPR10.BIT._CMT0 = portKERNEL_INTERRUPT_PRIORITY;
 	
 	/* Clear the interrupt flag. */
-	CMT0.CMCSR.BIT.CMF = 0;
+	CMT.CMCSR0.BIT.CMF = 0;
 	
 	/* Enable the compare match interrupt. */
-	CMT0.CMCSR.BIT.CMIE = 0x01;
+	CMT.CMCSR0.BIT.CMIE = 0x01;
 	
 	/* Start the timer. */
 	CMT.CMSTR.BIT.STR0 = 0x01;
@@ -434,7 +434,7 @@ const unsigned long ulCompareMatch = ( configPERIPHERAL_CLOCK_HZ / ( configTICK_
 void vApplicationTickHook( void )
 {
 	/* Clear the tick inerrupt.  This is called from an interrupt context. */
-	CMT0.CMCSR.BIT.CMF = 0;
+	CMT.CMCSR0.BIT.CMF = 0;
 }
 /*-----------------------------------------------------------*/
 
@@ -445,23 +445,23 @@ void vSetupClockForRunTimeStats( void )
 	much processing time each task is using. */
 
 	/* Turn the MTU2 on. */
-	STB.CR3.BIT._MTU2 = 0;
+	CPG.STBCR3.BIT.MSTP35 = 0;
 		
 	/* Clear counter on compare match A. */
-	MTU20.TCR.BIT.CCLR = 0x01;
+	MTU2.TCR_0.BIT.CCLR = 0x01;
 	
 	/* Compare match value to give very approximately 10 interrupts per 
 	millisecond. */
-	MTU20.TGRA = 5000;
+	MTU2.TGRA_0.WORD = 5000;
 	
 	/* Ensure the interrupt is clear. */
-	MTU20.TSR.BIT.TGFA = 0;
+	MTU2.TSR_0.BIT.TGFA = 0;
 		
 	/* Enable the compare match interrupt. */
-	MTU20.TIER.BIT.TGIEA = 0x01;	
+	MTU2.TIER_0.BIT.TGIEA = 0x01;	
 	
 	/* Set the interrupt priority. */
-	INTC.IPR09.BIT._MTU20G = portKERNEL_INTERRUPT_PRIORITY + 1;
+	INTC.IPR11.BIT._MTU00 = portKERNEL_INTERRUPT_PRIORITY + 1;
 	
 	/* Start the count. */
 	MTU2.TSTR.BIT.CST0 = 1;
@@ -476,8 +476,8 @@ volatile unsigned char ucStatus;
 	ulRunTime++;
 
 	/* Clear the interrupt. */
-	ucStatus = MTU20.TSR.BYTE;
-	MTU20.TSR.BIT.TGFA = 0;
+	ucStatus = MTU2.TSR_0.BYTE;
+	MTU2.TSR_0.BIT.TGFA = 0;
 }
 /*-----------------------------------------------------------*/
 
