@@ -114,7 +114,7 @@
 #include "flop.h"
 
 /* Constants required to configure the hardware. */
-#define mainFRQCR_VALUE 					( 0x0124 )	/* Input = 48MHz, I Clock = 48MHz, B Clock = 48MHz, P Clock = 12MHz */
+#define mainFRQCR_VALUE 					( 0x0124 )	/* Input = 48MHz, I Clock = 48MHz, B Clock = 48MHz, P Clock = 24MHz */
 
 /* Task priorities. */
 #define mainQUEUE_POLL_PRIORITY				( tskIDLE_PRIORITY + 1 )
