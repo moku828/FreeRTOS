@@ -45,8 +45,8 @@
 #define configUSE_PREEMPTION			1
 #define configUSE_IDLE_HOOK				1
 #define configUSE_TICK_HOOK				1   /* Must be set to one for the timer interrupt to be cleared. */
-#define configCPU_CLOCK_HZ				( 200000000UL )
-#define configPERIPHERAL_CLOCK_HZ		( 50000000UL )
+#define configCPU_CLOCK_HZ				( 48000000UL )
+#define configPERIPHERAL_CLOCK_HZ		( 12000000UL )
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 140 )
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 36 * 1024 ) )
