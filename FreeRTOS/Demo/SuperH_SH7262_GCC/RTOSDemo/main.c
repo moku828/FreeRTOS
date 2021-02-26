@@ -228,7 +228,7 @@ TaskHandle_t xCreatedTask;
     vStartPolledQueueTasks( mainQUEUE_POLL_PRIORITY );
     vStartIntegerMathTasks( mainINTEGER_TASK_PRIORITY );
     vStartGenericQueueTasks( mainGEN_QUEUE_TASK_PRIORITY );
-	vStartLEDFlashTasks( mainFLASH_TASK_PRIORITY );
+	//vStartLEDFlashTasks( mainFLASH_TASK_PRIORITY );
     vStartQueuePeekTasks();
 	vStartRecursiveMutexTasks();
 	
