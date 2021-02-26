@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/FreeRTOS/Demo/SuperH_SH7262_GCC/RTOSDemo",
+                "${workspaceFolder}/FreeRTOS/Demo/SuperH_SH7262_GCC/../../Source/portable/GCC/SH2A_FPU",
+                "${workspaceFolder}/FreeRTOS/Demo/SuperH_SH7262_GCC/../../Source/include",
+                "${workspaceFolder}/FreeRTOS/Demo/SuperH_SH7262_GCC/../Common/include"
+            ],
+            "defines": [""],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
