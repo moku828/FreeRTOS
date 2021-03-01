@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "cd FreeRTOS/Demo/SuperH_SH7262_GCC; make",
+            "command": "touch bootrom.bin; dd if=/dev/zero of=./SPIROM.BIN bs=65536 count=1; cd FreeRTOS/Demo/SuperH_SH7262_GCC; make",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -15,8 +15,19 @@
         {
             "label": "clean",
             "type": "shell",
-            "command": "cd FreeRTOS/Demo/SuperH_SH7262_GCC; make clean",
+            "command": "rm bootrom.bin SPIROM.BIN; cd FreeRTOS/Demo/SuperH_SH7262_GCC; make clean",
             "group": "build"
+        },
+        {
+            "label": "kill qemu",
+            "type": "shell",
+            "command": "ps aux | grep qemu-system-sh4eb | grep -v grep | awk '{ print \"kill -9\", $2 }' | sh"
+        },
+        {
+            "label": "daemonize qemu",
+            "type": "shell",
+            "command": "qemu-system-sh4eb -daemonize -s -S -drive file=SPIROM.BIN,if=mtd,format=raw",
+            "dependsOn": ["kill qemu"]
         }
     ]
 }
